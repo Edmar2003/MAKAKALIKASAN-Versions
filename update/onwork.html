@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #050015, #0a001f, #0f003a);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #a5b4fc, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(129, 140, 248, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(129, 140, 248, 0.8), 0 0 40px rgba(129, 140, 248, 0.6);
+            }
+        }
+
+        .sub-text {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #c7d2fe;
+        }
+
+        /* Night Sky Background */
+        .night-sky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+            animation: shoot var(--shoot-duration) linear forwards;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0) rotate(var(--angle));
+                opacity: 1;
+                width: 0;
+            }
+            10% {
+                width: var(--length);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(var(--end-x)) translateY(var(--end-y)) rotate(var(--angle));
+                opacity: 0;
+                width: 0;
+            }
+        }
+
+        /* Ground */
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20vh;
+            background: linear-gradient(to top, #1a1a2e, #16213e);
+            z-index: 5;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .ground::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(129, 140, 248, 0.3) 20%, 
+                rgba(129, 140, 248, 0.6) 50%, 
+                rgba(129, 140, 248, 0.3) 80%, 
+                transparent 100%);
+            filter: blur(5px);
+        }
+
+        /* Mountains */
+        .mountain {
+            position: absolute;
+            bottom: 20vh;
+            width: 0;
+            height: 0;
+            border-left: var(--width) solid transparent;
+            border-right: var(--width) solid transparent;
+            border-bottom: var(--height) solid #0f3460;
+            z-index: 4;
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            z-index: 3;
+            filter: blur(3px);
+            animation: float var(--float-duration) linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+        }
+
+        .cloud::before {
+            width: 60%;
+            height: 60%;
+            top: -35%;
+            left: 5%;
+        }
+
+        .cloud::after {
+            width: 50%;
+            height: 50%;
+            top: -25%;
+            right: 5%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: clamp(2.5rem, 12vw, 5rem);
+            }
+            
+            .sub-text {
+                font-size: 1.2rem;
+            }
+            
+            .ground {
+                height: 15vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .main-text {
+                font-size: 2.5rem;
+            }
+            
+            .sub-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Night Sky -->
+    <div class="night-sky" id="night-sky"></div>
+    
+    <!-- Clouds -->
+    <div id="clouds-container"></div>
+    
+    <!-- Ground -->
+    <div class="ground" id="ground"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="main-text">Celestial Creation Ongoing</h1>
+        <p class="sub-text">We're currently working on something amazing. Stay tuned for updates!</p>
+    </div>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const nightSky = document.getElementById('night-sky');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                // Random size (0.5px to 3px)
+                const size = Math.random() * 2.5 + 0.5;
+                
+                // Random twinkle duration (2s to 5s)
+                const duration = Math.random() * 3 + 2;
+                
+                star.style.left = `${left}%`;
+                star.style.top = `${top}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                nightSky.appendChild(star);
+            }
+        }
+        
+        // Create shooting stars
+        function createShootingStars() {
+            const nightSky = document.getElementById('night-sky');
+            
+            setInterval(() => {
+                const shootingStar = document.createElement('div');
+                shootingStar.classList.add('shooting-star');
+                
+                // Random starting position (from top)
+                const startX = Math.random() * 100;
+                const startY = Math.random() * 30;
+                
+                // Random angle (-30 to 30 degrees)
+                const angle = Math.random() * 60 - 30;
+                
+                // Random length (50px to 150px)
+                const length = Math.random() * 100 + 50;
+                
+                // Random duration (1s to 3s)
+                const duration = Math.random() * 2 + 1;
+                
+                // Calculate end position
+                const distance = 200; // Distance to travel
+                const angleRad = angle * Math.PI / 180;
+                const endX = startX + Math.cos(angleRad) * distance;
+                const endY = startY + Math.sin(angleRad) * distance;
+                
+                shootingStar.style.left = `${startX}%`;
+                shootingStar.style.top = `${startY}%`;
+                shootingStar.style.setProperty('--angle', `${angle}deg`);
+                shootingStar.style.setProperty('--length', `${length}px`);
+                shootingStar.style.setProperty('--shoot-duration', `${duration}s`);
+                shootingStar.style.setProperty('--end-x', `${endX - startX}%`);
+                shootingStar.style.setProperty('--end-y', `${endY - startY}%`);
+                
+                nightSky.appendChild(shootingStar);
+                
+                // Remove shooting star after animation completes
+                setTimeout(() => {
+                    shootingStar.remove();
+                }, duration * 1000);
+                
+            }, 2000); // Create a new shooting star every 2 seconds
+        }
+        
+        // Create mountains
+        function createMountains() {
+            const ground = document.getElementById('ground');
+            const mountainCount = 15;
+            
+            for (let i = 0; i < mountainCount; i++) {
+                const mountain = document.createElement('div');
+                mountain.classList.add('mountain');
+                
+                // Random width and height
+                const width = Math.random() * 100 + 50;
+                const height = Math.random() * 80 + 40;
+                
+                // Random position along the bottom
+                const left = Math.random() * 100;
+                
+                mountain.style.left = `${left}%`;
+                mountain.style.setProperty('--width', `${width}px`);
+                mountain.style.setProperty('--height', `${height}px`);
+                
+                ground.appendChild(mountain);
+            }
+        }
+        
+        // Create clouds
+        function createClouds() {
+            const cloudsContainer = document.getElementById('clouds-container');
+            const cloudCount = 8;
+            
+            for (let i = 0; i < cloudCount; i++) {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                
+                // Random size (40px to 120px width)
+                const size = Math.random() * 80 + 40;
+                
+                // Random vertical position (10% to 50% from top)
+                const top = Math.random() * 40 + 10;
+                
+                // Random duration (20s to 40s)
+                const duration = Math.random() * 20 + 20;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                
+                cloud.style.width = `${size}px`;
+                cloud.style.height = `${size * 0.6}px`;
+                cloud.style.top = `${top}%`;
+                cloud.style.left = `-${size}px`;
+                cloud.style.setProperty('--float-duration', `${duration}s`);
+                cloud.style.animationDelay = `-${delay}s`;
+                
+                cloudsContainer.appendChild(cloud);
+            }
+        }
+        
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            createStars();
+            createShootingStars();
+            createClouds();
+            createMountains();
+        });
+    </script>
+</body>
+</html>

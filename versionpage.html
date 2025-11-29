@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKAKALIKASAN Website Versions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Creepy Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Eater&family=Creepster&display=swap" rel="stylesheet">
+    <!-- Holiday Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Snowburst+One&display=swap" rel="stylesheet">
+    <!-- New Year Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        h1, h2, h3, .subtitle {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        body {
+            background-color: #000014;
+            color: #e6f7ff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background-image:
+                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.95) 20%, transparent 21%),
+                radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.9) 20%, transparent 21%),
+                radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.85) 20%, transparent 21%),
+                radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.8) 20%, transparent 21%),
+                linear-gradient(180deg, #001026 0%, #000012 60%, #000005 100%);
+            background-size: 120px 120px, 90px 90px, 160px 160px, 110px 110px, auto;
+            background-repeat: repeat, repeat, repeat, repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .intro-message {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 22px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(12px);
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(20px) scale(0.99);
+            opacity: 0;
+            transition: transform 800ms cubic-bezier(0.2,0.9,0.25,1), opacity 500ms ease;
+        }
+
+        .intro-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            transform-origin: left center;
+            transform: scaleX(0.0);
+            transition: transform 900ms cubic-bezier(0.2,0.9,0.25,1);
+            opacity: 0.95;
+        }
+
+        .intro-message::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 180%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.02) 100%);
+            transform: translateX(-100%);
+            mix-blend-mode: overlay;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-message.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .intro-message.active::before {
+            transform: scaleX(1);
+        }
+
+        .intro-message.active::after {
+            animation: shimmer 3.5s ease-in-out 0s 2;
+            opacity: 0.9;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); opacity: 0.0; }
+            25% { transform: translateX(-20%); opacity: 0.6; }
+            60% { transform: translateX(10%); opacity: 0.9; }
+            100% { transform: translateX(120%); opacity: 0.0; }
+        }
+
+        .intro-message p {
+            font-size: 1.3rem;
+            color: #c8d8e8;
+            line-height: 1.8;
+            font-family: 'Fredoka', sans-serif;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transform-origin: center;
+        }
+
+        .intro-message p strong {
+            color: #ffd93d;
+            font-weight: 800;
+            text-shadow: 0 0 20px rgba(255, 217, 61, 0.55);
+        }
+
+        .intro-sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0.8));
+            box-shadow: 0 0 12px rgba(255,255,255,0.9), 0 0 20px rgba(255,217,61,0.12);
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(6px) scale(0.8);
+            animation: sparkleRise 1300ms ease-out forwards;
+        }
+
+        @keyframes sparkleRise {
+            0% { opacity: 0; transform: translateY(6px) scale(0.6); }
+            30% { opacity: 1; transform: translateY(-6px) scale(1.05); }
+            100% { opacity: 0; transform: translateY(-20px) scale(0.6); }
+        }
+
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .version-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .version-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+        }
+
+        .version-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .version-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffd93d;
+        }
+
+        .version-number {
+            font-size: 1.2rem;
+            color: #4d96ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .version-description {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .version-date {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .version-card {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .version-card:hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid #ffd93d;
+            border-radius: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { border-color: #ffd93d; box-shadow: 0 0 10px #ffd93d; }
+            50% { border-color: #4d96ff; box-shadow: 0 0 20px #4d96ff; }
+            100% { border-color: #ffd93d; box-shadow: 0 0 10px #ffd93d; }
+        }
+
+        .card-link-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .version-card:hover .card-link-indicator {
+            opacity: 1;
+        }
+
+        .version-card.halloween {
+            background: linear-gradient(135deg, #120005 0%, #2b0b00 65%);
+            border: 3px solid rgba(255,140,0,0.12);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 -6px 30px rgba(255,90,0,0.03);
+            color: #ffdca3;
+            border-radius: 18px;
+            overflow: visible;
+            position: relative;
+            font-family: 'Creepster', cursive;
+        }
+
+        .version-card.halloween::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 10%, rgba(255,140,0,0.06), transparent 10%),
+                        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.6), transparent 40%);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .version-card.halloween .version-title {
+            color: #ffb84d;
+            text-shadow: 0 0 10px rgba(255,120,0,0.6), 0 4px 12px rgba(0,0,0,0.6);
+            font-family: 'Eater', cursive;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            animation: neonFlicker 3s infinite alternate;
+            position: relative;
+        }
+
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 4px #ff8c00,
+                    0 0 11px #ff8c00,
+                    0 0 19px #ff8c00,
+                    0 0 40px #ff4500,
+                    0 0 80px #ff4500,
+                    0 0 90px #ff4500,
+                    0 0 100px #ff4500,
+                    0 0 150px #ff4500;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .version-card.halloween .version-number,
+        .version-card.halloween .version-description,
+        .version-card.halloween .version-date {
+            font-family: 'Creepster', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .version-card.halloween .version-number {
+            color: #ff8c00;
+            font-size: 1.3rem;
+        }
+
+        .version-card.halloween .version-description {
+            color: #ffdca3;
+            font-size: 1.1rem;
+        }
+
+        .version-card.halloween .version-date {
+            color: #ffa500;
+        }
+
+        .version-card.halloween .spooky-decoration {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 28px;
+            pointer-events: none;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .version-card.halloween .pumpkin {
+            filter: drop-shadow(0 0 8px rgba(255,120,0,0.6));
+            transform-origin: center;
+            animation: pumpkinBounce 4s ease-in-out infinite;
+        }
+
+        @keyframes pumpkinBounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px) rotate(-6deg); }
+        }
+
+        .version-card.halloween .bat { 
+            font-size: 20px; 
+            opacity: 0.95; 
+            transform-origin: center; 
+            animation: batFly 4s linear infinite;
+        }
+
+        .version-card.halloween .bat.bat1 { animation-delay: 0s; }
+        .version-card.halloween .bat.bat2 { animation-delay: 1.2s; transform: scaleX(-1); }
+
+        @keyframes batFly {
+            0% { transform: translateX(0) translateY(0) rotate(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateX(-18px) translateY(-28px) rotate(-20deg); }
+            90% { opacity: 1; }
+            100% { transform: translateX(0) translateY(0) rotate(0); opacity: 0; }
+        }
+
+        .version-card.halloween::after {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 40% 40%, rgba(255,140,0,0.12), transparent 30%);
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .version-card.holiday {
+            background: linear-gradient(135deg, #001122 0%, #003366 65%);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 -6px 30px rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Mountains of Christmas', cursive;
+        }
+
+        .version-card.holiday::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(0, 100, 200, 0.1) 0%, transparent 30%);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .version-card.holiday .version-title {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.6);
+            font-family: 'Snowburst One', cursive;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            animation: holidayGlow 2s infinite alternate;
+            position: relative;
+        }
+
+        @keyframes holidayGlow {
+            0% {
+                text-shadow: 
+                    0 0 5px #ffd700,
+                    0 0 10px #ffd700,
+                    0 0 15px #ff6b6b,
+                    0 0 20px #ff6b6b;
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #ffd700,
+                    0 0 20px #ffd700,
+                    0 0 30px #ff6b6b,
+                    0 0 40px #ff6b6b,
+                    0 0 50px #ff6b6b;
+            }
+        }
+
+        .version-card.holiday .version-number,
+        .version-card.holiday .version-description,
+        .version-card.holiday .version-date {
+            font-family: 'Mountains of Christmas', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .version-card.holiday .version-number {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+        }
+
+        .version-card.holiday .version-description {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .version-card.holiday .version-date {
+            color: #4d96ff;
+        }
+
+        .version-card.holiday .holiday-decoration {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 28px;
+            pointer-events: none;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .version-card.holiday .snowflake {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            transform-origin: center;
+            animation: snowflakeSpin 8s linear infinite;
+        }
+
+        @keyframes snowflakeSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .version-card.holiday .gift { 
+            font-size: 24px; 
+            opacity: 0.9; 
+            transform-origin: center; 
+            animation: giftBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes giftBounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: 18px;
+            z-index: 1;
+        }
+
+        .snowflake-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0.8;
+            animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(calc(100% + 10px)) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        .version-card.new-year {
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #2a2a6a 100%);
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.7), inset 0 -6px 30px rgba(255, 215, 0, 0.1);
+            color: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .version-card.new-year::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 100, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 40% 60%, rgba(0, 200, 255, 0.1) 0%, transparent 35%);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .version-card.new-year .version-title {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6);
+            font-family: 'Henny Penny', cursive;
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            animation: newYearGlow 2s infinite alternate, titleFloat 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes newYearGlow {
+            0% {
+                text-shadow: 
+                    0 0 5px #ffd700,
+                    0 0 10px #ffd700,
+                    0 0 15px #ff6b6b,
+                    0 0 20px #ff6b6b;
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #ffd700,
+                    0 0 20px #ffd700,
+                    0 0 30px #ff6b6b,
+                    0 0 40px #ff6b6b,
+                    0 0 50px #ff6b6b,
+                    0 0 60px #ff6b6b;
+            }
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .version-card.new-year .version-number,
+        .version-card.new-year .version-description,
+        .version-card.new-year .version-date {
+            font-family: 'Pacifico', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .version-card.new-year .version-number {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+            text-shadow: 0 0 8px rgba(255, 107, 107, 0.7);
+        }
+
+        .version-card.new-year .version-description {
+            color: #ffffff;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .version-card.new-year .version-date {
+            color: #4d96ff;
+            font-size: 1rem;
+            text-shadow: 0 0 5px rgba(77, 150, 255, 0.5);
+        }
+
+        .version-card.new-year .new-year-decoration {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 28px;
+            pointer-events: none;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .version-card.new-year .champagne {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            transform-origin: center;
+            animation: champagneBubble 4s ease-in-out infinite;
+        }
+
+        @keyframes champagneBubble {
+            0%,100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.1); }
+        }
+
+        .version-card.new-year .clock { 
+            font-size: 24px; 
+            opacity: 0.9; 
+            transform-origin: center; 
+            animation: clockTick 2s ease-in-out infinite;
+        }
+
+        @keyframes clockTick {
+            0%,100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .fireworks-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: 18px;
+            z-index: 1;
+        }
+
+        .firework-rocket {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            height: 12px;
+            border-radius: 2px;
+            background: linear-gradient(180deg, #ffffff 0%, #ffd93d 70%);
+            transform: translateX(-50%);
+            box-shadow: 0 0 6px rgba(255,255,255,0.9);
+            animation: rocketRise var(--rise-duration, 1.2s) linear forwards;
+            z-index: 2;
+        }
+
+        @keyframes rocketRise {
+            to { bottom: var(--rise-end, 70%); opacity: 1; }
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: currentColor;
+            will-change: transform, opacity;
+            filter: drop-shadow(0 0 4px currentColor);
+            animation: particleFly 800ms cubic-bezier(0.2,0.8,0.2,1) forwards;
+            z-index: 3;
+        }
+
+        @keyframes particleFly {
+            to {
+                transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 8px;
+            height: 16px;
+            background: var(--color);
+            opacity: 0.8;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(calc(100% + 10px)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .versions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .version-card.halloween .version-title,
+            .version-card.holiday .version-title,
+            .version-card.new-year .version-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>    
+
+    <div class="container">
+        <header>
+            <h1>Welcome to MAKAKALIKASAN Website Versions</h1>
+            <p class="subtitle">Explore our journey through different versions and updates</p>
+        </header>
+        
+        <main>
+            <div class="intro-message">
+                <p>This site is the official version of <strong>MAKAKALIKASAN</strong>, a digital memorial dedicated to our class.</p>
+            </div>
+            
+            <div class="versions-grid">
+                <!-- Version Cards -->
+                <div class="version-card" onclick="window.open('https://edmar2003.github.io/Preview/', '_blank')">
+                    <h2 class="version-title">First Release</h2>
+                    <p class="version-number">v1.0 - Original Version</p>
+                    <p class="version-description">The initial launch of our website with core features</p>
+                    <p class="version-date">May 6, 2025</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+
+                <div class="version-card" onclick="window.open('https://edmar2003.github.io/MAKANATURE/', '_blank')">
+                    <h2 class="version-title">Update 1</h2>
+                    <p class="version-number">v2.0 - Futuristic Redesign</p>
+                    <p class="version-description">Complete visual overhaul with modern interface</p>
+                    <p class="version-date">May 14, 2025</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+
+                <div class="version-card" onclick="window.open('https://edmar2003.github.io/MAKAKALIKASAN/', '_blank')">
+                    <h2 class="version-title">Update 2</h2>
+                    <p class="version-number">v3.0 - Memorial Album Update</p>
+                    <p class="version-description">Added tribute section with memorial content</p>
+                    <p class="version-date">September 24, 2025</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+
+                <div class="version-card halloween" onclick="window.open('https://edmar2003.github.io/MAKAKALIKASAN-HALLOWEENSPECIAL/', '_blank')">
+                    <div class="spooky-decoration">
+                        <span class="pumpkin">🎃</span>
+                        <span class="bat bat1">🦇</span>
+                        <span class="bat bat2">👻</span>
+                    </div>
+                    <h2 class="version-title">Halloween Update</h2>
+                    <p class="version-number">v4.0 - Halloween Special</p>
+                    <p class="version-description">Spooky themes and Halloween exclusive features</p>
+                    <p class="version-date">October 26, 2025</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+
+                <div class="version-card holiday" onclick="window.open('update/onwork.html', '_blank')">
+                    <div class="snow-container" id="snow-container-holiday"></div>
+                    <div class="holiday-decoration">
+                        <span class="snowflake">❄️</span>
+                        <span class="gift">🎁</span>
+                    </div>
+                    <h2 class="version-title">HOLIDAY UPDATE</h2>
+                    <p class="version-number">v5.0 - Winter Celebration</p>
+                    <p class="version-description">Festive winter theme with holiday specials</p>
+                    <p class="version-date">December ??, 2025</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+
+                <div class="version-card new-year" onclick="window.open('update/onwork.html', '_blank')">
+                    <div class="fireworks-container" id="fireworks-container-newyear"></div>
+                    <div class="new-year-decoration">
+                        <span class="champagne">🥂</span>
+                        <span class="clock">🕛</span>
+                    </div>
+                    <h2 class="version-title">NEW YEAR UPDATE</h2>
+                    <p class="version-number">v6.0 - Celebration Edition</p>
+                    <p class="version-description">Fresh start with new features and celebrations</p>
+                    <p class="version-date">January 1, 2026</p>
+                    <div class="card-link-indicator">🔗 Click to visit</div>
+                </div>
+            </div>
+
+        </main>
+        
+    </div>
+
+    <script>
+        // intro animation
+        function addIntroAnimation() {
+            const intro = document.querySelector('.intro-message');
+            if (!intro) return;
+
+            const sparkCount = 10;
+            for (let i = 0; i < sparkCount; i++) {
+                const s = document.createElement('div');
+                s.className = 'intro-sparkle';
+                s.style.left = `${10 + Math.random() * 80}%`;
+                s.style.top = `${10 + Math.random() * 60}%`;
+                s.style.animationDelay = `${Math.random() * 600}ms`;
+                s.style.animationDuration = `${900 + Math.random() * 1000}ms`;
+                intro.appendChild(s);
+                setTimeout(() => { try { s.remove(); } catch (e) {} }, 3000 + Math.random() * 1500);
+            }
+
+            setTimeout(() => {
+                intro.classList.add('active');
+            }, 500);
+
+            setTimeout(() => {
+                const p = intro.querySelector('p');
+                if (p) {
+                    p.style.transition = 'transform 700ms cubic-bezier(0.2,0.9,0.25,1)';
+                    p.style.transform = 'scale(1.03)';
+                    setTimeout(() => { p.style.transform = 'scale(1)'; }, 700);
+                }
+            }, 520);
+        }
+
+        // snow effect
+        function createSnowEffect() {
+            const container = document.getElementById('snow-container-holiday');
+            if (!container) return;
+            
+            const snowflakeCount = 10;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                setTimeout(() => {
+                    const snowflake = document.createElement('div');
+                    snowflake.className = 'snowflake-particle';
+                    
+                    snowflake.style.left = `${Math.random() * 100}%`;
+                    
+                    const size = 3 + Math.random() * 5;
+                    snowflake.style.width = `${size}px`;
+                    snowflake.style.height = `${size}px`;
+                    
+                    snowflake.style.opacity = `${0.5 + Math.random() * 0.5}`;
+                    
+                    const duration = 5 + Math.random() * 10;
+                    snowflake.style.animationDuration = `${duration}s`;
+                    snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    container.appendChild(snowflake);
+                    
+                    setTimeout(() => {
+                        if (snowflake.parentNode) {
+                            snowflake.remove();
+                        }
+                    }, duration * 1000);
+                }, i * 200);
+            }
+            
+            // snowflakes
+            setInterval(() => {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake-particle';
+                
+                snowflake.style.left = `${Math.random() * 100}%`;
+                
+                const size = 3 + Math.random() * 5;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                
+                snowflake.style.opacity = `${0.5 + Math.random() * 0.5}`;
+                
+                const duration = 5 + Math.random() * 10;
+                snowflake.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(snowflake);
+                
+                setTimeout(() => {
+                    if (snowflake.parentNode) {
+                        snowflake.remove();
+                    }
+                }, duration * 1000);
+            }, 300);
+        }
+
+        // fireworks
+        function createNewYearFireworks() {
+            const container = document.getElementById('fireworks-container-newyear');
+            if (!container) return;
+            
+            const colors = ['#ff6b6b', '#ffd93d', '#6bcf7f', '#4d96ff', '#c56cf0', '#ffffff'];
+            
+            function launchRocket() {
+                const rocket = document.createElement('div');
+                rocket.className = 'firework-rocket';
+                const leftPct = 10 + Math.random() * 80;
+                rocket.style.left = `${leftPct}%`;
+                const riseEnd = 40 + Math.random() * 40;
+                rocket.style.setProperty('--rise-end', `${riseEnd}%`);
+                rocket.style.setProperty('--rise-duration', `${0.8 + Math.random() * 0.6}s`);
+                container.appendChild(rocket);
+
+                rocket.addEventListener('animationend', () => {
+                    const rect = rocket.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    const cx = rect.left - containerRect.left + rect.width / 2;
+                    const cy = rect.top - containerRect.top + rect.height / 2;
+                    createBurst(cx, cy);
+                    rocket.remove();
+                });
+            }
+
+            function createBurst(x, y) {
+                const particleCount = 15 + Math.floor(Math.random() * 15);
+                const maxDistance = 60 + Math.random() * 60;
+                
+                // confetti
+                createConfetti(x, y);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const p = document.createElement('div');
+                    p.className = 'firework-particle';
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    p.style.color = color;
+                    p.style.left = `${x}px`;
+                    p.style.top = `${y}px`;
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 15 + Math.random() * maxDistance;
+                    const tx = Math.cos(angle) * distance + 'px';
+                    const ty = Math.sin(angle) * distance + 'px';
+                    p.style.setProperty('--tx', tx);
+                    p.style.setProperty('--ty', ty);
+                    p.style.animationDelay = `${Math.random() * 200}ms`;
+                    container.appendChild(p);
+                    setTimeout(() => { if (p.parentNode) p.remove(); }, 1200);
+                }
+
+                for (let i = 0; i < 8; i++) {
+                    const s = document.createElement('div');
+                    s.className = 'firework-particle';
+                    s.style.width = '3px';
+                    s.style.height = '3px';
+                    s.style.left = `${x}px`;
+                    s.style.top = `${y}px`;
+                    const angle = (i / 8) * Math.PI * 2;
+                    const tx = Math.cos(angle) * (30 + Math.random() * 30) + 'px';
+                    const ty = Math.sin(angle) * (30 + Math.random() * 30) + 'px';
+                    s.style.setProperty('--tx', tx);
+                    s.style.setProperty('--ty', ty);
+                    s.style.animationDelay = '0ms';
+                    s.style.color = '#ffffff';
+                    container.appendChild(s);
+                    setTimeout(() => { if (s.parentNode) s.remove(); }, 1000);
+                }
+            }
+
+            function createConfetti(x, y) {
+                const confettiCount = 10 + Math.floor(Math.random() * 10);
+                const confettiColors = ['#ff6b6b', '#ffd93d', '#6bcf7f', '#4d96ff', '#c56cf0', '#ffffff'];
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    confetti.style.setProperty('--color', color);
+                    confetti.style.left = `${x}px`;
+                    confetti.style.top = `${y}px`;
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    const duration = 2 + Math.random() * 3;
+                    confetti.style.animationDuration = `${duration}s`;
+                    confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+                    
+                    container.appendChild(confetti);
+                    setTimeout(() => { if (confetti.parentNode) confetti.remove(); }, duration * 1000);
+                }
+            }
+
+            setInterval(() => {
+                launchRocket();
+                if (Math.random() < 0.4) {
+                    setTimeout(() => launchRocket(), 300);
+                }
+            }, 1200 + Math.random() * 800);
+        }
+
+        addIntroAnimation();
+        createSnowEffect();
+        createNewYearFireworks();
+
+        function handleCardClick(url) {
+            event.currentTarget.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                event.currentTarget.style.transform = 'translateY(-10px)';
+            }, 150);
+
+            setTimeout(() => {
+                window.open(url, '_blank');
+            }, 300);
+        }
+
+        
+    </script>
+</body>
+</html>
